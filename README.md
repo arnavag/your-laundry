@@ -3,6 +3,8 @@
 A college laundry website made with **HTML, CSS, JavaScript and Firebase**.
 Made for Bennett University (laundry codes start with `BU`).
 
+**Live site: https://arnavag.github.io/your-laundry/**
+
 ## How it works
 
 1. **Student** signs up with their college email (e.g. S25CSEU1161@bennett.edu.in).
@@ -37,7 +39,7 @@ Made for Bennett University (laundry codes start with `BU`).
 | `firebase-config.js` | Firebase project settings |
 | `style.css` | Design (light + dark, responsive) |
 | `firestore-rules.txt` | Database rule: only logged-in users can use it |
-| `firebase.json`, `.firebaserc` | Settings for putting the site online |
+| `firebase.json` | Optional settings for Firebase Hosting (not needed for GitHub Pages) |
 
 ## Database (Firestore)
 
@@ -54,17 +56,15 @@ Made for Bennett University (laundry codes start with `BU`).
 3. **Desk staff:** Authentication → Users → **Add user** → `admin@yourlaundry.app` + a password.
    On the website, staff log in by typing just **`admin`**. (More staff: e.g. `ravi@yourlaundry.app` → log in as `ravi`.)
 4. Firestore → **Rules** → paste `firestore-rules.txt` → **Publish**.
-5. Run: right-click `index.html` → **Open with Live Server**.
+5. Run on your laptop: right-click `index.html` → **Open with Live Server**.
 
-## Put it online (Firebase Hosting)
+## Hosting (GitHub Pages)
 
-```
-npm install -g firebase-tools
-firebase login
-firebase deploy --only hosting
-```
+The site is hosted for free on GitHub Pages: **https://arnavag.github.io/your-laundry/**
 
-Site: **https://your-laundry-75285.web.app**
+1. Repo → **Settings → Pages** → Branch: **main**, folder **/ (root)** → Save.
+2. Firebase → Authentication → Settings → **Authorized domains** → add `arnavag.github.io`.
+3. To update the site, upload the changed files to this repo. GitHub Pages refreshes in 1–2 minutes.
 
 ## Settings (top of `common.js`)
 
