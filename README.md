@@ -39,7 +39,6 @@ Made for Bennett University (laundry codes start with `BU`).
 | `firebase-config.js` | Firebase project settings |
 | `style.css` | Design (light + dark, responsive) |
 | `firestore-rules.txt` | Database rule: only logged-in users can use it |
-| `firebase.json` | Optional settings for Firebase Hosting (not needed for GitHub Pages) |
 
 ## Database (Firestore)
 
