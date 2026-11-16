@@ -182,24 +182,22 @@ async function openOrder(typed) {
     panel.insertAdjacentHTML("beforeend", `
       <div class="date-row">
         <label>Change return date
-          <input type="date" id="returnInput" value="${toInputDate(order.returnDate)}">
+          <input type="text" id="returnInput" value="${showDate(order.returnDate)}" placeholder="DD/MM/YYYY">
         </label>
         <button type="button" id="saveDateBtn" class="btn btn-light-outline">Save Date</button>
       </div>`);
 
     document.getElementById("saveDateBtn").addEventListener("click", async () => {
-      const value = document.getElementById("returnInput").value;
-      if (!value) return;
-      const newDate = formatDate(new Date(value + "T00:00"));
+      const newDate = document.getElementById("returnInput").value.trim();
+      const valid = /^\d{2}\/\d{2}\/\d{4}$/.test(newDate) && formatDate(parseDate(newDate)) === newDate;
+      if (!valid) {
+        toast("Please enter a real date as DD/MM/YYYY, e.g. 20/11/2026.");
+        return;
+      }
       await updateDoc(doc(db, "orders", order.code), { returnDate: newDate });
       toast(`Return date changed to ${newDate}.`, "good");
     });
   }
-}
-
-function toInputDate(dateText) {
-  const d = parseDate(dateText);
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
 setupTabs("orderTabs", (filter) => {
