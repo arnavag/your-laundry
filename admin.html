@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laundry Desk | Your Laundry</title>
+  <script>document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";</script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar admin">
+    <div>
+      <h1>Your Laundry · Desk</h1>
+      <p id="staffInfo"></p>
+    </div>
+    <nav class="top-actions">
+      <label class="switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider"></span>
+        <span>Dark</span>
+      </label>
+      <button type="button" id="logoutBtn" class="btn btn-light">Logout</button>
+    </nav>
+  </header>
+
+  <main class="page">
+
+    <section class="card wide">
+      <div id="stats" class="stats"></div>
+    </section>
+
+    <section class="card">
+      <h2>Find Laundry by Code</h2>
+      <form id="findForm" class="find-row">
+        <input type="text" id="findCode" placeholder="e.g. BU-48213 or 48213" required>
+        <button type="submit" class="btn btn-primary">Find</button>
+      </form>
+      <p id="findMessage" class="error"></p>
+      <div id="orderPanel"></div>
+    </section>
+
+    <section class="card">
+      <h2>Complaints</h2>
+      <div class="tabs small" id="complaintTabs">
+        <button type="button" class="tab active" data-filter="Open">Open</button>
+        <button type="button" class="tab" data-filter="All">All</button>
+      </div>
+      <div id="complaints"><p class="muted">Loading...</p></div>
+    </section>
+
+    <section class="card wide">
+      <h2>All Laundry</h2>
+      <input type="text" id="search" placeholder="Search by code, name, college ID or email">
+      <div class="tabs small" id="orderTabs">
+        <button type="button" class="tab active" data-filter="Active">Not Collected</button>
+        <button type="button" class="tab" data-filter="All">All</button>
+      </div>
+      <div id="orders"><p class="muted">Loading...</p></div>
+    </section>
+
+  </main>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

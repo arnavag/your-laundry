@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Your Laundry</title>
+  <script>document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";</script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+
+  <div class="corner-switch">
+    <label class="switch">
+      <input type="checkbox" id="themeToggle">
+      <span class="slider"></span>
+      <span>Dark</span>
+    </label>
+  </div>
+
+  <main class="login-box card">
+    <h1>Your Laundry</h1>
+    <p class="muted">College laundry without the paper slips.</p>
+
+    <div class="tabs">
+      <button type="button" id="loginTab" class="tab active">Login</button>
+      <button type="button" id="signupTab" class="tab">Sign Up</button>
+    </div>
+
+    <form id="loginForm">
+      <label>College Email
+        <input type="text" id="loginId" placeholder="e.g. S25CSEU1161@bennett.edu.in" required>
+      </label>
+      <label>Password
+        <input type="password" id="loginPassword" required>
+      </label>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+
+    <form id="signupForm" class="hidden">
+      <label>Full Name
+        <input type="text" id="signupName" placeholder="e.g. Arnav Agarwal" required>
+      </label>
+      <label>College Email
+        <input type="text" id="signupId" placeholder="e.g. S25CSEU1161@bennett.edu.in" required>
+      </label>
+      <label>Password (at least 6 characters)
+        <input type="password" id="signupPassword" minlength="6" required>
+      </label>
+      <button type="submit" class="btn btn-primary">Create Account</button>
+    </form>
+
+    <p id="message" class="error"></p>
+  </main>
+
+  <script type="module" src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Laundry | Your Laundry</title>
+  <script>document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";</script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div>
+      <h1>Your Laundry</h1>
+      <p>Hi, <span id="userName"></span> (<span id="userId"></span>)</p>
+    </div>
+    <nav class="top-actions">
+      <label class="switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider"></span>
+        <span>Dark</span>
+      </label>
+      <button type="button" id="logoutBtn" class="btn btn-light">Logout</button>
+    </nav>
+  </header>
+
+  <main class="page">
+
+    <section class="card wide">
+      <h2>My Current Laundry</h2>
+      <div id="current"><p class="muted">Loading...</p></div>
+    </section>
+
+    <section class="card">
+      <h2>Give New Laundry</h2>
+      <p id="newLaundryBlocked" class="note hidden">
+        You can give new laundry once you have collected your current one.
+      </p>
+      <form id="laundryForm">
+        <p class="muted small">
+          You can give up to 10 big and 5 small clothes. They will be ready 3 days after the desk receives them.
+        </p>
+        <div id="picker"></div>
+        <p id="formMessage" class="error"></p>
+        <button type="submit" class="btn btn-green">Get My Laundry Code</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Help: Lost or Damaged Clothes</h2>
+      <form id="helpForm">
+        <label>Which laundry?
+          <select id="helpOrder" required></select>
+        </label>
+        <label>Which item?
+          <select id="helpCloth" required></select>
+        </label>
+        <label>Problem
+          <select id="helpType">
+            <option>Lost</option>
+            <option>Damaged</option>
+            <option>Wrong item returned</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>Describe the problem
+          <textarea id="helpText" rows="3" placeholder="e.g. My blue shirt was not returned." required></textarea>
+        </label>
+        <label>Photo (optional)
+          <input type="file" id="helpPhoto" accept="image/*">
+        </label>
+        <p id="helpMessage" class="error"></p>
+        <button type="submit" class="btn btn-primary">Send Complaint</button>
+      </form>
+
+      <h3>My Complaints</h3>
+      <div id="myComplaints"><p class="muted">You have no complaints.</p></div>
+    </section>
+
+    <section class="card wide">
+      <h2>Laundry History</h2>
+      <div id="history"><p class="muted">No past laundry yet.</p></div>
+    </section>
+
+  </main>
+
+  <script type="module" src="student.js"></script>
+</body>
+</html>
